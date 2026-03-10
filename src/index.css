@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #FFE600; /* LemonBOX Yellow */
+  --primary-hover: #E5CF00;
+  --secondary: #000000; /* LemonBOX Black */
+  --background-start: #F9FAFB;
+  --background-end: #E5E7EB;
+  --surface: rgba(255, 255, 255, 0.7);
+  --surface-hover: rgba(255, 255, 255, 0.95);
+  --surface-border: rgba(0, 0, 0, 0.05);
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  --blur: blur(12px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, var(--background-start), var(--background-end));
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: var(--surface);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow);
+  border-radius: 16px;
+}
+
+.glass-card {
+  background: var(--surface);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  background: var(--surface-hover);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-card.selected {
+  border-color: var(--secondary);
+  background: rgba(255, 230, 0, 0.15);
+  box-shadow: 0 0 20px rgba(255, 230, 0, 0.3);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.03), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.glass-card:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--secondary);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 230, 0, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  background: var(--primary-hover);
+  box-shadow: 0 6px 20px rgba(255, 230, 0, 0.6);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  background: #E5E7EB;
+  color: #9CA3AF;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px rgba(255, 230, 0, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(0, 0, 0, 0.2); }
+  100% { box-shadow: 0 0 20px rgba(255, 230, 0, 0.3); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; opacity: 0; }
+.stagger-2 { animation-delay: 0.2s; opacity: 0; }
+.stagger-3 { animation-delay: 0.3s; opacity: 0; }
+.stagger-4 { animation-delay: 0.4s; opacity: 0; }
+
+.text-gradient {
+  background: linear-gradient(to right, #000000, #444444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2); 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3); 
+}
