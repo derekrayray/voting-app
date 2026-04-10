@@ -5,21 +5,20 @@ import './index.css'
 
 // Mock list of employees
 const EMPLOYEES = [
-  { id: 1, name: '侯亚楠' },
-  { id: 2, name: '闻丽' },
-  { id: 3, name: '熊吟秋' },
-  { id: 4, name: 'Pico' },
-  { id: 5, name: 'Joan' },
-  { id: 6, name: '吉培培' },
-  { id: 7, name: 'Cindy' },
-  { id: 8, name: '宋会群' },
-  { id: 9, name: '费佳雪' },
-  { id: 10, name: '俞呈橙' },
-  { id: 11, name: '马丽' },
-  { id: 12, name: '刘金铃' },
-  { id: 13, name: '陈洁璐' },
-  { id: 14, name: 'Jerry' },
-  { id: 15, name: 'Trevor' },
+  { id: 1, name: '闻丽' },
+  { id: 2, name: '熊吟秋' },
+  { id: 3, name: 'Pico' },
+  { id: 4, name: 'Joan' },
+  { id: 5, name: '吉培培' },
+  { id: 6, name: 'Cindy' },
+  { id: 7, name: '宋会群' },
+  { id: 8, name: '俞呈橙' },
+  { id: 9, name: '马丽' },
+  { id: 10, name: '刘金铃' },
+  { id: 11, name: '陈洁璐' },
+  { id: 12, name: 'Jerry' },
+  { id: 13, name: 'Trevor' },
+  { id: 14, name: '叶昭' },
 ]
 
 function App() {
