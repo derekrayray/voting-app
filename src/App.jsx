@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { supabase } from './supabaseClient'
+
 import { Award, CheckCircle, ChevronRight, User } from 'lucide-react'
 import './index.css'
 
@@ -35,11 +35,17 @@ function App() {
     setError(null)
 
     try {
-      const { error: supaError } = await supabase
-        .from('votes')
-        .insert([{ nominee_name: selectedNominee }])
+      const response = await fetch('/api/vote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ nominee_name: selectedNominee }),
+      })
 
-      if (supaError) throw supaError
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
 
       setHasVoted(true)
     } catch (err) {
