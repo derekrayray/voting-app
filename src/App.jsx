@@ -13,12 +13,13 @@ const EMPLOYEES = [
   { id: 6, name: 'Cindy' },
   { id: 7, name: '宋会群' },
   { id: 8, name: '俞呈橙' },
-  { id: 9, name: '马丽' },
-  { id: 10, name: '刘金铃' },
-  { id: 11, name: '陈洁璐' },
-  { id: 12, name: 'Jerry' },
-  { id: 13, name: 'Trevor' },
-  { id: 14, name: '叶昭' },
+  { id: 9, name: '刘金铃' },
+  { id: 10, name: '陈洁璐' },
+  { id: 11, name: 'Jerry' },
+  { id: 12, name: 'Trevor' },
+  { id: 13, name: '叶昭' },
+  { id: 14, name: '鲍新月' },
+  { id: 15, name: '曹佳晶' },
 ]
 
 function App() {
